@@ -4,7 +4,7 @@ const loadCountries = () => {
     fetch('https://restcountries.com/v3.1/all')
     .then(response => response.json())
     .then(data => {
-        allCountries = data; // Store the data for search functionality
+        allCountries = data; 
         displayCountries(data);
     })
     .catch(error => console.error('Error:', error));
@@ -12,13 +12,13 @@ const loadCountries = () => {
 
 const displayCountries = (countries) => {
     const container = document.getElementById('countries-container');
-    container.innerHTML = ''; // Clear previous content
+    container.innerHTML = ''; 
 
     countries.forEach(element => {
         const newDiv = document.createElement('div');
         newDiv.classList.add('country');
         
-        // Create country details
+        
         newDiv.innerHTML = ` 
             <h5>${element.name.common} (${element.cca3})</h5>
             <img src="${element.flags.png}" alt="Flag of ${element.name.common}">
